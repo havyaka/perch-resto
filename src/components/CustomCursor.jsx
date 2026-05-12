@@ -1,10 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function CustomCursor() {
   const dot  = useRef(null);
   const ring = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsMobile(true);
+      return;
+    }
+
     let mouseX = 0, mouseY = 0;
     let ringX  = 0, ringY  = 0;
     let raf;
@@ -54,10 +60,12 @@ export default function CustomCursor() {
     };
   }, []);
 
+  if (isMobile) return null;
+
   return (
     <>
-      <div ref={dot}  className="cursor-dot"  />
-      <div ref={ring} className="cursor-ring" />
+      <div ref={dot}  className="cursor-dot hidden md:block"  />
+      <div ref={ring} className="cursor-ring hidden md:block" />
     </>
   );
 }

@@ -77,7 +77,7 @@ export default function Hero({ loaded }) {
 
       {/* ── Fog overlay ── */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background: 'radial-gradient(ellipse 80% 50% at 50% 60%, rgba(200,140,60,0.06) 0%, transparent 70%)',
           mixBlendMode: 'screen',

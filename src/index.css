@@ -69,7 +69,12 @@ body {
   opacity: 0.028;
   pointer-events: none;
   z-index: 9997;
-  animation: grain 0.5s steps(1) infinite;
+}
+
+@media (min-width: 768px) {
+  .film-grain::after {
+    animation: grain 0.5s steps(1) infinite;
+  }
 }
 
 @keyframes grain {
@@ -119,11 +124,16 @@ body {
 
 /* ─── GLASS CARD ─────────────────────────────────────────────────── */
 .glass-card {
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(20,20,20,0.8);
   border: 1px solid rgba(200,146,42,0.12);
   border-radius: 1rem;
+}
+@media (min-width: 768px) {
+  .glass-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 
 /* ─── HERO PARALLAX IMG ──────────────────────────────────────────── */
@@ -147,12 +157,18 @@ body {
 
 /* ─── PARTICLE ───────────────────────────────────────────────────── */
 .particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: rgba(200,146,42,0.6);
-  border-radius: 50%;
-  animation: particleFloat var(--dur, 12s) var(--delay, 0s) ease-in-out infinite;
+  display: none;
+}
+@media (min-width: 768px) {
+  .particle {
+    display: block;
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(200,146,42,0.6);
+    border-radius: 50%;
+    animation: particleFloat var(--dur, 12s) var(--delay, 0s) ease-in-out infinite;
+  }
 }
 
 @keyframes particleFloat {
